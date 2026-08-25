@@ -1,0 +1,8 @@
+# Secrets and local Cloudflare configuration
+worker/.dev.vars
+.wrangler/
+
+# Dependencies and logs
+node_modules/
+worker/node_modules/
+npm-debug.log*

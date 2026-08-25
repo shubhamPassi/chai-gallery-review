@@ -1,0 +1,8 @@
+name = "replace-me-review-draft"
+main = "src/index.js"
+compatibility_date = "2026-08-26"
+
+# Set GEMINI_API_KEY with: npx wrangler secret put GEMINI_API_KEY
+# Set these non-secret values in Cloudflare's dashboard:
+# ALLOWED_ORIGIN = "https://yourname.github.io"
+# GEMINI_MODEL = "gemini-3.1-flash-lite"

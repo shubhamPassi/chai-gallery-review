@@ -1,0 +1,4 @@
+# Do not commit worker/.dev.vars. Copy this file to that name for local development.
+GEMINI_API_KEY=REPLACE_ME
+GEMINI_MODEL=gemini-3.1-flash-lite
+ALLOWED_ORIGIN=http://127.0.0.1:3000
