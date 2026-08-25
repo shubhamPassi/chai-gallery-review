@@ -4,12 +4,12 @@ A small, mobile-first page for customers who scan a QR code at your shop. They c
 
 ## Project layout
 
-- `frontend/` – static site; deploy it to GitHub Pages.
+- Repository root – static site; deploy it to GitHub Pages.
 - `worker/` – Cloudflare Worker that keeps the Gemini API key private.
 
 ## Before deployment
 
-1. The Chai Gallery name, logo, review link, and review topics are already set in [`frontend/config.js`](frontend/config.js).
+1. The Chai Gallery name, logo, review link, and review topics are already set in [`config.js`](config.js).
 2. Create a Gemini API key in Google AI Studio. Your Google AI Pro consumer subscription and Gemini API billing are separate.
 
 ## Run locally
@@ -27,10 +27,10 @@ npm run dev
 In another terminal, serve the static page from the workspace root:
 
 ```powershell
-npx serve frontend -l 3000
+npx serve . -l 3000
 ```
 
-For local testing, temporarily set `API_URL` to `http://127.0.0.1:8787/api/generate-review` in `frontend/config.js`, and set `ALLOWED_ORIGIN=http://127.0.0.1:3000` in `worker/.dev.vars`.
+For local testing, temporarily set `apiUrl` to `http://127.0.0.1:8787/api/generate-review` in `config.js`, and set `ALLOWED_ORIGIN=http://127.0.0.1:3000` in `worker/.dev.vars`.
 
 ## Deploy
 
@@ -39,8 +39,8 @@ For local testing, temporarily set `API_URL` to `http://127.0.0.1:8787/api/gener
 3. Set the Worker variables in the Cloudflare dashboard:
    - `ALLOWED_ORIGIN`: exact final site origin, such as `https://yourname.github.io`
    - `GEMINI_MODEL`: `gemini-3.1-flash-lite`
-4. Put the deployed Worker endpoint into `frontend/config.js` as `apiUrl`.
-5. Publish `frontend/` through the `shubhamPassi/chai-gallery-review` GitHub Pages repository. Its expected origin is `https://shubhampassi.github.io`; set `ALLOWED_ORIGIN` to that exact origin. Update it if you later use a custom domain.
+4. Put the deployed Worker endpoint into `config.js` as `apiUrl`.
+5. Publish the repository root through the `shubhamPassi/chai-gallery-review` GitHub Pages repository. Its expected origin is `https://shubhampassi.github.io`; set `ALLOWED_ORIGIN` to that exact origin. Update it if you later use a custom domain.
 6. Generate the printed QR from the final branded site URL, not the Google review URL. This lets you change the Google link later without reprinting the QR.
 
 ## Production safeguards
