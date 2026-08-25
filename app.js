@@ -4,11 +4,12 @@
   const state = { rating: null, liked: [] };
   const $ = (selector) => document.querySelector(selector);
   const elements = {
-    businessName: $("#business-name"), tagline: $("#tagline"), logo: $("#logo"), ratingControl: $("#rating-control"), tagList: $("#tag-list"), comment: $("#comment"), charCount: $("#char-count"), form: $("#review-form"), message: $("#form-message"), generate: $("#generate-button"), draftSection: $("#draft-section"), draft: $("#draft"), regenerate: $("#regenerate-button"), copy: $("#copy-button"), googleLink: $("#google-link"), copyMessage: $("#copy-message"),
+    businessName: $("#business-name"), tagline: $("#tagline"), logo: $("#logo"), ratingControl: $("#rating-control"), tagList: $("#tag-list"), comment: $("#comment"), charCount: $("#char-count"), form: $("#review-form"), message: $("#form-message"), generate: $("#generate-button"), googleDirectLink: $("#google-direct-link"), draftSection: $("#draft-section"), draft: $("#draft"), regenerate: $("#regenerate-button"), copy: $("#copy-button"), googleLink: $("#google-link"), copyMessage: $("#copy-message"),
   };
   elements.businessName.textContent = config.businessName || "Your shop";
   elements.tagline.textContent = config.tagline || "Your honest feedback helps us improve.";
   elements.logo.src = config.logoUrl || "assets/chai-gallery-logo.png";
+  elements.googleDirectLink.href = config.googleReviewUrl || "#";
   document.title = `Share your experience | ${config.businessName || "Your shop"}`;
   elements.googleLink.href = config.googleReviewUrl || "#";
   for (let value = 1; value <= 5; value += 1) {

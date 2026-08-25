@@ -20,7 +20,7 @@ textarea { width: 100%; resize: vertical; border: 1px solid #bdcdbf; border-radi
 textarea:focus, button:focus-visible, a:focus-visible { outline: 3px solid #d99925; outline-offset: 2px; }
 .hint { margin: 7px 0 0; text-align: right; }
 .form-message { min-height: 1.3em; margin: -10px 0 14px; color: #a33d22; font-size: .9rem; }
-button, .google-link { min-height: 48px; border-radius: 12px; padding: 12px 16px; font: inherit; font-weight: 750; cursor: pointer; text-align: center; text-decoration: none; }
+button, .google-link, .secondary-button { min-height: 48px; border-radius: 12px; padding: 12px 16px; font: inherit; font-weight: 750; cursor: pointer; text-align: center; text-decoration: none; }
 .primary-button { display: inline-flex; align-items: center; justify-content: center; width: 100%; border: 1px solid #1c6345; color: #fff; background: #1f6b4b; }
 .primary-button:hover { background: #15553a; }
 .primary-button:disabled { cursor: wait; opacity: .65; }
@@ -30,6 +30,7 @@ h2 { margin: 0 0 11px; font-size: 1.15rem; }
 .text-button { min-height: auto; border: 0; padding: 4px; color: #1b6546; background: transparent; text-decoration: underline; }
 .draft-actions { display: grid; grid-template-columns: 1fr 1.25fr; gap: 10px; margin-top: 12px; }
 .secondary-button { border: 1px solid #1f6b4b; color: #1f6b4b; background: #fffefa; }
+.direct-google-link { display: block; width: 100%; margin-top: 10px; }
 .privacy-note { margin: 30px 0 0; line-height: 1.45; text-align: center; }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 @media (max-width: 390px) { .star-button { width: 42px; height: 42px; font-size: 2rem; } .draft-actions { grid-template-columns: 1fr; } }
