@@ -7,7 +7,6 @@ window.REVIEW_CONFIG = {
   tagline: "Coffee • Art • Moment — your honest feedback helps us improve.",
   logoUrl: "assets/chai-gallery-logo.png",
   googleReviewUrl: "https://share.google/WPgex8wLOWB0hnb1R",
-  // Set this after the Cloudflare Worker is deployed.
-  apiUrl: "",
+  apiUrl: "https://chai-gallery-review-draft.passishubham1.workers.dev/api/generate-review",
   tags: ["Chai & coffee", "Food", "Service", "Ambience", "Value for money", "Art & décor"],
 };
