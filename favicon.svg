@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Chai Gallery">
+  <rect width="64" height="64" rx="14" fill="#fffaf0"/>
+  <path d="M16 27h29v16c0 7-5.6 12-12.5 12h-4C21.6 55 16 50 16 43V27Z" fill="#d78b54" stroke="#2b1b10" stroke-width="3"/>
+  <path d="M45 32h4.5c5 0 5 11-1.5 11h-3" fill="none" stroke="#2b1b10" stroke-width="3" stroke-linecap="round"/>
+  <path d="M19 28c5-4 18-4 24 0" fill="none" stroke="#2b1b10" stroke-width="3" stroke-linecap="round"/>
+  <path d="M27 21c-3-4 3-6 0-10M36 21c-3-4 3-6 0-10" fill="none" stroke="#6e9a7d" stroke-width="3" stroke-linecap="round"/>
+</svg>
