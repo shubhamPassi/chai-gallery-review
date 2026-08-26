@@ -2,9 +2,10 @@
   "use strict";
   const config = window.REVIEW_CONFIG || {};
   const state = { rating: null, liked: [] };
+  let reviewRedirectTimer;
   const $ = (selector) => document.querySelector(selector);
   const elements = {
-    businessName: $("#business-name"), tagline: $("#tagline"), logo: $("#logo"), ratingControl: $("#rating-control"), tagList: $("#tag-list"), comment: $("#comment"), charCount: $("#char-count"), form: $("#review-form"), message: $("#form-message"), generate: $("#generate-button"), googleDirectLink: $("#google-direct-link"), draftSection: $("#draft-section"), draft: $("#draft"), regenerate: $("#regenerate-button"), googleLink: $("#google-link"), copyMessage: $("#copy-message"),
+    businessName: $("#business-name"), tagline: $("#tagline"), logo: $("#logo"), ratingControl: $("#rating-control"), tagList: $("#tag-list"), comment: $("#comment"), charCount: $("#char-count"), form: $("#review-form"), message: $("#form-message"), generate: $("#generate-button"), googleDirectLink: $("#google-direct-link"), draftSection: $("#draft-section"), draft: $("#draft"), regenerate: $("#regenerate-button"), googleLink: $("#google-link"), copyMessage: $("#copy-message"), copyModal: $("#copy-modal"), openGoogle: $("#open-google-button"), closeModal: $("#close-modal-button"),
   };
   elements.businessName.textContent = config.businessName || "Your shop";
   elements.tagline.textContent = config.tagline || "Your honest feedback helps us improve.";
@@ -29,7 +30,13 @@
   });
   elements.comment.addEventListener("input", () => { elements.charCount.textContent = elements.comment.value.length; });
   elements.form.addEventListener("submit", generateDraft); elements.regenerate.addEventListener("click", generateDraft);
-  elements.googleLink.addEventListener("click", async (event) => { if (!isConfiguredUrl(config.googleReviewUrl)) { event.preventDefault(); elements.copyMessage.textContent = "The Google review link has not been configured yet."; return; } if (elements.draft.value.trim()) await copyReview(); });
+  elements.googleLink.addEventListener("click", async (event) => {
+    event.preventDefault();
+    if (!isConfiguredUrl(config.googleReviewUrl)) { elements.copyMessage.textContent = "The Google review link has not been configured yet."; return; }
+    if (await copyReview()) openCopyModal();
+  });
+  elements.openGoogle.addEventListener("click", openGoogleReview);
+  elements.closeModal.addEventListener("click", closeCopyModal);
   function payload() { return { rating: state.rating, liked: state.liked, comment: elements.comment.value.trim() }; }
   function isConfiguredUrl(value) { return typeof value === "string" && /^https:\/\//.test(value) && !value.includes("REPLACE_ME"); }
   function setBusy(busy) { elements.generate.disabled = busy; elements.generate.textContent = busy ? "Writing your draft…" : "✨ Write my draft"; elements.regenerate.disabled = busy; }
@@ -52,4 +59,12 @@
     try { await navigator.clipboard.writeText(text); elements.copyMessage.textContent = "Copied. Paste it into Google and post only if it reflects your experience."; return true; }
     catch { elements.draft.focus(); elements.draft.select(); elements.copyMessage.textContent = "Select and copy the review manually."; return false; }
   }
+  function openCopyModal() {
+    window.clearTimeout(reviewRedirectTimer);
+    elements.copyModal.hidden = false;
+    elements.openGoogle.focus();
+    reviewRedirectTimer = window.setTimeout(openGoogleReview, 2000);
+  }
+  function closeCopyModal() { window.clearTimeout(reviewRedirectTimer); elements.copyModal.hidden = true; }
+  function openGoogleReview() { closeCopyModal(); window.location.assign(config.googleReviewUrl); }
 })();

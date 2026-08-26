@@ -32,5 +32,18 @@ h2 { margin: 0 0 11px; font-size: 1.15rem; }
 .secondary-button { border: 1px solid #1f6b4b; color: #1f6b4b; background: #fffefa; }
 .direct-google-link { display: block; width: 100%; margin-top: 10px; }
 .privacy-note { margin: 30px 0 0; line-height: 1.45; text-align: center; }
+.copy-modal { position: fixed; inset: 0; z-index: 10; display: grid; place-items: center; padding: 20px; background: rgba(19, 44, 33, .58); }
+.copy-modal-card { width: min(100%, 390px); padding: 30px 24px 24px; border-radius: 22px; background: #fffefa; text-align: center; box-shadow: 0 24px 70px rgba(0, 0, 0, .25); animation: modal-enter .28s ease-out both; }
+.copy-modal-card h2 { margin: 13px 0 8px; font-family: Georgia, serif; font-size: 1.7rem; }
+.copy-modal-card p { margin: 0 0 21px; color: #4d6258; line-height: 1.5; }
+.copy-modal-card .redirect-note { margin: -8px 0 18px; color: #1f6b4b; font-size: .9rem; font-weight: 700; }
+.success-animation { position: relative; display: grid; place-items: center; width: 78px; height: 78px; margin: 0 auto; border-radius: 50%; background: #e2f1e5; }
+.success-check { display: grid; place-items: center; width: 54px; height: 54px; border-radius: 50%; color: #fff; background: #1f6b4b; font-size: 2rem; font-weight: 800; animation: check-pop .46s .08s cubic-bezier(.2, 1.45, .5, 1) both; }
+.success-spark { position: absolute; width: 7px; height: 7px; border-radius: 50%; background: #dfa636; animation: sparkle .8s .2s ease-out both; }
+.spark-one { top: 3px; right: 9px; }.spark-two { bottom: 9px; right: -1px; animation-delay: .3s; }.spark-three { top: 18px; left: -3px; animation-delay: .38s; }
+.modal-close { margin-top: 12px; color: #587263; }
+@keyframes modal-enter { from { opacity: 0; transform: translateY(12px) scale(.96); } to { opacity: 1; transform: none; } }
+@keyframes check-pop { from { opacity: 0; transform: scale(.3) rotate(-20deg); } to { opacity: 1; transform: scale(1) rotate(0); } }
+@keyframes sparkle { from { opacity: 0; transform: scale(.2); } 40% { opacity: 1; transform: scale(1.2); } to { opacity: 0; transform: scale(.8); } }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 @media (max-width: 390px) { .star-button { width: 42px; height: 42px; font-size: 2rem; } .draft-actions { grid-template-columns: 1fr; } }
