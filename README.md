@@ -41,7 +41,7 @@ For local testing, temporarily set `apiUrl` to `http://127.0.0.1:8787/api/genera
    - `GEMINI_MODEL`: `gemini-3.1-flash-lite`
 4. The deployed Chai Gallery Worker endpoint is already configured in `config.js`.
 5. Publish the repository root through the `shubhamPassi/chai-gallery-review` GitHub Pages repository. Its expected origin is `https://shubhampassi.github.io`; set `ALLOWED_ORIGIN` to that exact origin. Update it if you later use a custom domain.
-6. Generate the printed QR from the final branded site URL, not the Google review URL. This lets you change the Google link later without reprinting the QR.
+6. Generate the printed QR from `https://review.chaigallery.in`, not the Google review URL. This lets you change the Google link later without reprinting the QR.
 
 ## Production safeguards
 
