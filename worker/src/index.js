@@ -40,7 +40,8 @@ export function validatePayload(raw) {
 
 function corsHeaders(request, env) {
   const origin = request.headers.get("Origin");
-  if (!origin || !env.ALLOWED_ORIGIN || origin !== env.ALLOWED_ORIGIN) return null;
+  const allowedOrigins = (env.ALLOWED_ORIGIN || "").split(",").map((value) => value.trim());
+  if (!origin || !allowedOrigins.includes(origin)) return null;
   return { "Access-Control-Allow-Origin": origin, "Access-Control-Allow-Methods": "POST, OPTIONS", "Access-Control-Allow-Headers": "Content-Type", "Vary": "Origin" };
 }
 
