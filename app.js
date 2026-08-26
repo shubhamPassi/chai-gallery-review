@@ -5,7 +5,7 @@
   let reviewRedirectTimer;
   const $ = (selector) => document.querySelector(selector);
   const elements = {
-    businessName: $("#business-name"), tagline: $("#tagline"), logo: $("#logo"), ratingControl: $("#rating-control"), tagList: $("#tag-list"), comment: $("#comment"), charCount: $("#char-count"), form: $("#review-form"), message: $("#form-message"), generate: $("#generate-button"), googleDirectLink: $("#google-direct-link"), draftSection: $("#draft-section"), draft: $("#draft"), regenerate: $("#regenerate-button"), googleLink: $("#google-link"), copyMessage: $("#copy-message"), copyModal: $("#copy-modal"), openGoogle: $("#open-google-button"), closeModal: $("#close-modal-button"),
+    businessName: $("#business-name"), tagline: $("#tagline"), logo: $("#logo"), ratingControl: $("#rating-control"), tagList: $("#tag-list"), comment: $("#comment"), charCount: $("#char-count"), form: $("#review-form"), message: $("#form-message"), generate: $("#generate-button"), googleDirectLink: $("#google-direct-link"), draftSection: $("#draft-section"), draft: $("#draft"), regenerate: $("#regenerate-button"), googleLink: $("#google-link"), copyMessage: $("#copy-message"), copyModal: $("#copy-modal"),
   };
   elements.businessName.textContent = config.businessName || "Your shop";
   elements.tagline.textContent = config.tagline || "Your honest feedback helps us improve.";
@@ -35,8 +35,6 @@
     if (!isConfiguredUrl(config.googleReviewUrl)) { elements.copyMessage.textContent = "The Google review link has not been configured yet."; return; }
     if (await copyReview()) openCopyModal();
   });
-  elements.openGoogle.addEventListener("click", openGoogleReview);
-  elements.closeModal.addEventListener("click", closeCopyModal);
   function payload() { return { rating: state.rating, liked: state.liked, comment: elements.comment.value.trim() }; }
   function isConfiguredUrl(value) { return typeof value === "string" && /^https:\/\//.test(value) && !value.includes("REPLACE_ME"); }
   function setBusy(busy) { elements.generate.disabled = busy; elements.generate.textContent = busy ? "Writing your draft…" : "✨ Write my draft"; elements.regenerate.disabled = busy; }
@@ -62,9 +60,8 @@
   function openCopyModal() {
     window.clearTimeout(reviewRedirectTimer);
     elements.copyModal.hidden = false;
-    elements.openGoogle.focus();
     reviewRedirectTimer = window.setTimeout(openGoogleReview, 2000);
   }
   function closeCopyModal() { window.clearTimeout(reviewRedirectTimer); elements.copyModal.hidden = true; }
-  function openGoogleReview() { closeCopyModal(); window.location.assign(config.googleReviewUrl); }
+  function openGoogleReview() { window.location.replace(config.googleReviewUrl); }
 })();
