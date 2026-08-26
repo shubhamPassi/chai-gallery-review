@@ -4,7 +4,7 @@
   const state = { rating: null, liked: [] };
   const $ = (selector) => document.querySelector(selector);
   const elements = {
-    businessName: $("#business-name"), tagline: $("#tagline"), logo: $("#logo"), ratingControl: $("#rating-control"), tagList: $("#tag-list"), comment: $("#comment"), charCount: $("#char-count"), form: $("#review-form"), message: $("#form-message"), generate: $("#generate-button"), googleDirectLink: $("#google-direct-link"), draftSection: $("#draft-section"), draft: $("#draft"), regenerate: $("#regenerate-button"), copy: $("#copy-button"), googleLink: $("#google-link"), copyMessage: $("#copy-message"),
+    businessName: $("#business-name"), tagline: $("#tagline"), logo: $("#logo"), ratingControl: $("#rating-control"), tagList: $("#tag-list"), comment: $("#comment"), charCount: $("#char-count"), form: $("#review-form"), message: $("#form-message"), generate: $("#generate-button"), googleDirectLink: $("#google-direct-link"), draftSection: $("#draft-section"), draft: $("#draft"), regenerate: $("#regenerate-button"), googleLink: $("#google-link"), copyMessage: $("#copy-message"),
   };
   elements.businessName.textContent = config.businessName || "Your shop";
   elements.tagline.textContent = config.tagline || "Your honest feedback helps us improve.";
@@ -28,7 +28,7 @@
     elements.tagList.append(button);
   });
   elements.comment.addEventListener("input", () => { elements.charCount.textContent = elements.comment.value.length; });
-  elements.form.addEventListener("submit", generateDraft); elements.regenerate.addEventListener("click", generateDraft); elements.copy.addEventListener("click", copyReview);
+  elements.form.addEventListener("submit", generateDraft); elements.regenerate.addEventListener("click", generateDraft);
   elements.googleLink.addEventListener("click", async (event) => { if (!isConfiguredUrl(config.googleReviewUrl)) { event.preventDefault(); elements.copyMessage.textContent = "The Google review link has not been configured yet."; return; } if (elements.draft.value.trim()) await copyReview(); });
   function payload() { return { rating: state.rating, liked: state.liked, comment: elements.comment.value.trim() }; }
   function isConfiguredUrl(value) { return typeof value === "string" && /^https:\/\//.test(value) && !value.includes("REPLACE_ME"); }
