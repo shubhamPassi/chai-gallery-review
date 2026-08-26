@@ -33,6 +33,7 @@ h2 { margin: 0 0 11px; font-size: 1.15rem; }
 .direct-google-link { display: block; width: 100%; margin-top: 10px; }
 .privacy-note { margin: 30px 0 0; line-height: 1.45; text-align: center; }
 .copy-modal { position: fixed; inset: 0; z-index: 10; display: grid; place-items: center; padding: 20px; background: rgba(19, 44, 33, .58); }
+.copy-modal[hidden] { display: none; }
 .copy-modal-card { width: min(100%, 390px); padding: 30px 24px 24px; border-radius: 22px; background: #fffefa; text-align: center; box-shadow: 0 24px 70px rgba(0, 0, 0, .25); animation: modal-enter .28s ease-out both; }
 .copy-modal-card h2 { margin: 13px 0 8px; font-family: Georgia, serif; font-size: 1.7rem; }
 .copy-modal-card p { margin: 0 0 21px; color: #4d6258; line-height: 1.5; }
