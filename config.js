@@ -6,7 +6,7 @@ window.REVIEW_CONFIG = {
   businessName: "Chai Gallery",
   tagline: "Coffee • Art • Moment — your honest feedback helps us improve.",
   logoUrl: "assets/chai-gallery-logo.png",
-  googleReviewUrl: "https://share.google/WPgex8wLOWB0hnb1R",
+  googleReviewUrl: "https://g.page/r/CbXG4Nll04QJEAE/review",
   apiUrl: "https://chai-gallery-review-draft.passishubham1.workers.dev/api/generate-review",
   tags: ["Chai & coffee", "Food", "Service", "Ambience", "Value for money", "Art & décor"],
 };
