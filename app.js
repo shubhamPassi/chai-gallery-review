@@ -71,6 +71,7 @@
       state.reviews = reviews.slice(0, 4); state.currentSuggestion = 0;
       elements.suggestions.hidden = false;
       elements.editor.hidden = false;
+      elements.submit.hidden = false;
       selectSuggestion(0, false);
       elements.suggestions.scrollIntoView({ behavior: "smooth", block: "nearest" });
     } catch (error) { elements.message.textContent = error.message || "We could not create review suggestions right now. Please try again."; }

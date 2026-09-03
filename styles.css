@@ -18,9 +18,10 @@ legend { display: block; margin-bottom: 10px; color: #274a38; font-size: .9rem; 
 .tag-list { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 21px; }
 .tag-button { border: 1px solid #c3d5c7; border-radius: 999px; padding: 8px 12px; color: #315a45; background: #fffefa; cursor: pointer; font-size: .88rem; }
 .tag-button[aria-pressed="true"] { border-color: #1d6b4c; color: #fff; background: #1d6b4c; }
-.generate-row { display: flex; justify-content: flex-end; margin: 0 0 8px; }
-.generate-button, .edit-button { min-height: auto; border: 0; padding: 4px 0; color: #6c38d8; background: transparent; font-weight: 800; cursor: pointer; }
-.generate-button:hover, .edit-button:hover { text-decoration: underline; }
+.generate-row { display: flex; justify-content: stretch; margin: 8px 0 16px; }
+.generate-row .generate-button { text-decoration: none; }
+.edit-button { min-height: auto; border: 0; padding: 4px 0; color: #6c38d8; background: transparent; font-weight: 800; cursor: pointer; }
+.edit-button:hover { text-decoration: underline; }
 textarea { width: 100%; resize: vertical; min-height: 126px; border: 1px solid #d8e3da; border-radius: 13px; padding: 14px; color: #183326; background: #fbfdfb; line-height: 1.48; }
 textarea:focus, button:focus-visible, a:focus-visible { outline: 3px solid #e5af40; outline-offset: 2px; }
 .hint { margin: 5px 0 0; color: #809087; font-size: .78rem; text-align: right; }
@@ -43,6 +44,7 @@ textarea:focus, button:focus-visible, a:focus-visible { outline: 3px solid #e5af
 .submit-button { display: inline-flex; width: 100%; min-height: 54px; align-items: center; justify-content: center; border: 0; border-radius: 11px; padding: 12px 16px; color: #fff; background: #1f6b4b; box-shadow: 0 5px 12px rgba(25, 99, 69, .18); font-weight: 850; cursor: pointer; text-decoration: none; }
 .submit-button:hover { background: #15543a; }
 .submit-button:disabled { cursor: not-allowed; opacity: .55; }
+.submit-button[hidden] { display: none; }
 .website-promo { display: block; width: fit-content; margin: 17px auto 0; color: #1f6b4b; font-size: .85rem; font-weight: 750; text-decoration: none; }
 .website-promo:hover { text-decoration: underline; }
 .modal { position: fixed; inset: 0; z-index: 5; display: grid; place-items: center; padding: 18px; background: rgba(16, 45, 32, .5); }
