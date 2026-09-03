@@ -23,11 +23,11 @@
     <main class="page-shell">
       <section class="review-card" aria-labelledby="business-name">
         <img id="logo" class="brand-logo" src="assets/chai-gallery-logo.png" alt="Chai Gallery logo: a cat enjoying chai in a cup" />
-        <p class="eyebrow">CHAI GALLERY</p>
+        <p class="eyebrow">THANK YOU FOR VISITING</p>
         <h1 id="business-name">Chai Gallery</h1>
-        <p id="journey-copy" class="journey-copy">Select stars for a professional review</p>
+        <p class="brand-tagline">Coffee • Art • Moment — your honest feedback helps us improve.</p>
         <form id="review-form" novalidate>
-          <fieldset class="rating-section"><legend class="sr-only">Your rating</legend><div id="rating-control" class="rating-control" role="radiogroup" aria-label="Your rating"></div></fieldset>
+          <fieldset class="rating-section"><legend>How was your experience? <span class="optional">Optional</span></legend><div id="rating-control" class="rating-control" role="radiogroup" aria-label="Your rating"></div></fieldset>
           <fieldset class="tags-section"><legend>What stood out? <span class="optional">Optional</span></legend><div id="tag-list" class="tag-list" aria-label="What stood out to you"></div></fieldset>
           <div class="review-input-section">
             <div class="generate-row"><button id="generate-button" class="generate-button" type="submit">✦ Generate Custom Review</button></div>
@@ -38,6 +38,7 @@
         </form>
         <section id="suggestions-section" class="suggestions-section" hidden aria-labelledby="suggestions-title">
           <h2 id="suggestions-title" class="sr-only">Review suggestions</h2>
+          <p class="suggestions-lead">Pick a suggestion or write your own review</p>
           <div class="suggestion-carousel"><button id="previous-suggestion" class="carousel-arrow previous" type="button" aria-label="Previous suggestion">‹</button><article id="suggestion-card" class="suggestion-card" aria-live="polite"></article><button id="next-suggestion" class="carousel-arrow next" type="button" aria-label="Next suggestion">›</button></div>
           <p id="suggestion-count" class="suggestion-count"></p>
         </section>

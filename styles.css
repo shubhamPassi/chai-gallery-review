@@ -3,13 +3,13 @@
 body { margin: 0; min-width: 320px; }
 button, textarea { font: inherit; }
 .page-shell { min-height: 100svh; display: grid; place-items: center; padding: 30px 16px; background: radial-gradient(circle at 10% 10%, #dce9dd 0, transparent 28%), radial-gradient(circle at 90% 88%, #f3dfc6 0, transparent 30%), #f7faf8; }
-.review-card { width: min(100%, 620px); padding: clamp(24px, 5vw, 42px); border: 1px solid #e1eae3; border-radius: 26px; background: rgba(255, 254, 250, .96); box-shadow: 0 15px 35px rgba(38, 73, 54, .13); text-align: center; }
-.brand-logo { display: block; width: 106px; height: 126px; margin: -10px auto 8px; object-fit: contain; }
+.review-card { width: min(100%, 720px); padding: clamp(30px, 6vw, 50px); border: 1px solid #e1eae3; border-radius: 26px; background: rgba(255, 254, 250, .96); box-shadow: 0 15px 35px rgba(38, 73, 54, .13); text-align: left; }
+.brand-logo { display: block; width: 138px; height: 166px; margin: -14px auto 20px; object-fit: contain; }
 .eyebrow { margin: 0 0 8px; color: #b5763c; font-size: .72rem; font-weight: 850; letter-spacing: .14em; }
 h1 { margin: 0; font-family: Georgia, serif; font-size: clamp(2rem, 7vw, 3rem); line-height: 1.05; }
-.journey-copy { margin: 12px 0 26px; color: #62766b; font-size: clamp(1rem, 3.5vw, 1.16rem); }
+.brand-tagline { margin: 14px 0 36px; color: #4d6258; font-size: clamp(1rem, 3.5vw, 1.16rem); }
 .rating-section, .tags-section { margin: 0; padding: 0; border: 0; }
-.rating-control { display: flex; justify-content: center; gap: 8px; margin-bottom: 23px; }
+.rating-control { display: flex; justify-content: flex-start; gap: 8px; margin-bottom: 28px; }
 .star-button { width: 52px; height: 54px; padding: 0; border: 0; color: #aab7ae; background: transparent; font-size: 2.8rem; line-height: 1; cursor: pointer; transition: transform .16s, color .16s; }
 .star-button:hover, .star-button.is-selected { color: #efad2e; transform: translateY(-2px); }
 .tags-section { text-align: left; }
@@ -33,6 +33,7 @@ textarea:focus, button:focus-visible, a:focus-visible { outline: 3px solid #e5af
 .line-two { width: 87%; }.line-three { width: 64%; }
 .suggestions-section { margin: 18px 0 14px; }
 .suggestions-section[hidden] { display: none; }
+.suggestions-lead { margin: 0 0 11px; color: #62766b; font-weight: 700; text-align: center; }
 .suggestion-carousel { display: grid; grid-template-columns: 38px minmax(0, 1fr) 38px; align-items: center; gap: 8px; }
 .suggestion-card { min-height: 126px; display: flex; align-items: center; padding: 18px; border: 1.5px solid #8c67ff; border-radius: 16px; color: #1f2933; background: #fff; line-height: 1.55; text-align: left; animation: card-in .22s ease-out; }
 .carousel-arrow { width: 38px; height: 38px; border: 1px solid #dfd4ff; border-radius: 50%; color: #6c38d8; background: #fff; box-shadow: 0 3px 8px rgba(78, 48, 150, .12); cursor: pointer; font-size: 1.9rem; line-height: .8; }
@@ -61,4 +62,4 @@ textarea:focus, button:focus-visible, a:focus-visible { outline: 3px solid #e5af
 .modal-card .edit-button { display: block; margin: 16px auto 0; color: #556a5d; }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 @keyframes shimmer { to { background-position: -300% 0; } } @keyframes float { to { transform: translateY(-4px) rotate(12deg); } } @keyframes card-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
-@media (max-width: 460px) { .review-card { padding: 25px 18px; }.brand-logo { width: 90px; height: 110px; }.star-button { width: 44px; height: 48px; font-size: 2.45rem; }.suggestion-carousel { grid-template-columns: 31px minmax(0, 1fr) 31px; gap: 5px; }.carousel-arrow { width: 31px; height: 31px; }.suggestion-card { padding: 15px; }.modal-card { padding: 34px 21px 23px; } }
+@media (max-width: 460px) { .review-card { padding: 30px 20px; }.brand-logo { width: 110px; height: 132px; }.star-button { width: 44px; height: 48px; font-size: 2.45rem; }.suggestion-carousel { grid-template-columns: 31px minmax(0, 1fr) 31px; gap: 5px; }.carousel-arrow { width: 31px; height: 31px; }.suggestion-card { padding: 15px; }.modal-card { padding: 34px 21px 23px; } }
