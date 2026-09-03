@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#1f513e" />
+    <meta name="theme-color" content="#1d6b4c" />
     <meta name="description" content="Share your Chai Gallery experience and write a Google review." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://review.chaigallery.in/" />
@@ -16,64 +16,39 @@
     <meta name="twitter:description" content="Share your Chai Gallery experience and write a Google review." />
     <meta name="twitter:image" content="https://review.chaigallery.in/assets/chai-gallery-review-social.png" />
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css?v=4" />
     <title>Chai Gallery Review</title>
-    <link rel="stylesheet" href="styles.css?v=3" />
   </head>
   <body>
     <main class="page-shell">
-      <section class="card" aria-labelledby="business-name">
+      <section class="review-card" aria-labelledby="business-name">
         <img id="logo" class="brand-logo" src="assets/chai-gallery-logo.png" alt="Chai Gallery logo: a cat enjoying chai in a cup" />
-        <p class="eyebrow">THANK YOU FOR VISITING</p>
-        <h1 id="business-name">Your shop</h1>
-        <p id="tagline" class="intro">Your honest feedback helps us improve.</p>
+        <p class="eyebrow">CHAI GALLERY</p>
+        <h1 id="business-name">Chai Gallery</h1>
+        <p id="journey-copy" class="journey-copy">Select stars for a professional review</p>
         <form id="review-form" novalidate>
-          <fieldset class="section">
-            <legend>How was your experience? <span class="optional">Optional</span></legend>
-            <div id="rating-control" class="rating-control" role="radiogroup" aria-label="Your rating"></div>
-          </fieldset>
-          <fieldset class="section">
-            <legend>What stood out?</legend>
-            <div id="tag-list" class="tag-list" aria-label="What stood out to you"></div>
-          </fieldset>
-          <div class="section">
-            <label for="comment">Tell us in your own words <span class="optional">Optional</span></label>
-            <textarea id="comment" name="comment" maxlength="700" rows="5" placeholder="For example: The staff were helpful and I enjoyed the tea."></textarea>
-            <p class="hint"><span id="char-count">0</span>/700 characters</p>
+          <fieldset class="rating-section"><legend class="sr-only">Your rating</legend><div id="rating-control" class="rating-control" role="radiogroup" aria-label="Your rating"></div></fieldset>
+          <fieldset class="tags-section"><legend>What stood out? <span class="optional">Optional</span></legend><div id="tag-list" class="tag-list" aria-label="What stood out to you"></div></fieldset>
+          <div class="review-input-section">
+            <div class="generate-row"><button id="generate-button" class="generate-button" type="submit">✦ Generate Custom Review</button></div>
+            <div id="generation-state" class="generation-state" hidden aria-live="polite"><span class="magic-icon">✦</span><strong>Crafting your Chai Gallery review…</strong><span class="loading-line line-one"></span><span class="loading-line line-two"></span><span class="loading-line line-three"></span></div>
+            <label class="sr-only" for="comment">Write your review</label><textarea id="comment" name="comment" maxlength="700" rows="5" placeholder="Write your review here in your own words…"></textarea><p class="hint"><span id="char-count">0</span>/700 characters</p>
           </div>
           <p id="form-message" class="form-message" role="status" aria-live="polite"></p>
-          <button id="generate-button" class="primary-button" type="submit">✨ Write my draft</button>
-          <a id="google-direct-link" class="secondary-button direct-google-link" href="#" target="_blank" rel="noopener">Write directly on Google</a>
         </form>
-        <section id="draft-section" class="draft-section" hidden aria-labelledby="draft-title">
-          <div class="section-heading">
-            <h2 id="draft-title">Your review draft</h2>
-            <button id="regenerate-button" class="text-button" type="button">Regenerate</button>
-          </div>
-          <label class="sr-only" for="draft">Editable review draft</label>
-          <textarea id="draft" rows="6" maxlength="900"></textarea>
-          <div class="draft-actions">
-            <a id="google-link" class="primary-button google-link" href="#" target="_blank" rel="noopener">Copy draft &amp; open Google</a>
-          </div>
-          <p id="copy-message" class="hint" role="status" aria-live="polite"></p>
+        <section id="suggestions-section" class="suggestions-section" hidden aria-labelledby="suggestions-title">
+          <h2 id="suggestions-title" class="sr-only">Review suggestions</h2>
+          <div class="suggestion-carousel"><button id="previous-suggestion" class="carousel-arrow previous" type="button" aria-label="Previous suggestion">‹</button><article id="suggestion-card" class="suggestion-card" aria-live="polite"></article><button id="next-suggestion" class="carousel-arrow next" type="button" aria-label="Next suggestion">›</button></div>
+          <p id="suggestion-count" class="suggestion-count"></p>
         </section>
-        <p class="privacy-note">We do not save your comments on this website. If you use the draft tool, your input is sent to our AI provider only to create the draft.</p>
+        <p id="copy-toast" class="copy-toast" role="status" aria-live="polite" hidden>✓ Copied to clipboard</p>
+        <button id="submit-review-button" class="submit-button" type="button">Submit Review</button>
         <a class="website-promo" href="https://www.chaigallery.in/" target="_blank" rel="noopener">☕ Discover more at Chai Gallery</a>
       </section>
     </main>
-    <div id="copy-modal" class="copy-modal" hidden role="dialog" aria-modal="true" aria-labelledby="copy-modal-title">
-      <div class="copy-modal-card">
-        <div class="success-animation" aria-hidden="true">
-          <span class="success-spark spark-one"></span>
-          <span class="success-spark spark-two"></span>
-          <span class="success-spark spark-three"></span>
-          <span class="success-check">✓</span>
-        </div>
-        <h2 id="copy-modal-title">Draft copied!</h2>
-        <p>Paste it into the Google review box, then post only if it reflects your experience.</p>
-        <p class="redirect-note">Opening Google Review in 2 seconds…</p>
-      </div>
+    <div id="almost-done-modal" class="modal" hidden role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <section class="modal-card"><button id="close-modal-button" class="modal-x" type="button" aria-label="Close">×</button><h2 id="modal-title">Almost done — finish on Google</h2><p>Your review for Chai Gallery is ready.</p><div class="clipboard-note"><span class="clipboard-icon">▣</span><div><strong>Review copied to clipboard</strong><span>Long-press inside Google’s review box, then tap Paste.</span></div></div><h3>What happens next</h3><ol class="next-steps"><li><b>1</b> Google review page opens</li><li><b>2</b> Paste your review — <em>already copied</em></li><li><b>3</b> Confirm your star rating</li><li><b>4</b> Post on Google</li></ol><p class="modal-footnote">Posted directly on Google. Sign in if prompted.</p><button id="open-google-button" class="submit-button" type="button">↗ Open Google Review Page</button><button id="edit-review-button" class="edit-button" type="button">Go back and edit</button></section>
     </div>
-    <script src="config.js"></script>
-    <script src="app.js?v=2"></script>
+    <script src="config.js"></script><script src="app.js?v=4"></script>
   </body>
 </html>
