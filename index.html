@@ -32,13 +32,12 @@
           <div class="review-input-section">
             <div class="generate-row"><button id="generate-button" class="submit-button generate-button" type="submit">Write my draft</button></div>
             <div id="generation-state" class="generation-state" hidden aria-live="polite"><span class="magic-icon">✦</span><strong>Crafting your Chai Gallery review…</strong><span class="loading-line line-one"></span><span class="loading-line line-two"></span><span class="loading-line line-three"></span></div>
-            <div id="editor-area" hidden><label class="sr-only" for="comment">Write your review</label><textarea id="comment" name="comment" maxlength="700" rows="5" placeholder="Write your review here in your own words…"></textarea><p class="hint"><span id="char-count">0</span>/700 characters</p></div>
+            <div id="editor-area" hidden><p class="suggestions-lead">Pick a suggestion or write your own review</p><label class="sr-only" for="comment">Write your review</label><textarea id="comment" name="comment" maxlength="700" rows="5" placeholder="Write your review here in your own words…"></textarea><p class="hint"><span id="char-count">0</span>/700 characters</p></div>
           </div>
           <p id="form-message" class="form-message" role="status" aria-live="polite"></p>
         </form>
         <section id="suggestions-section" class="suggestions-section" hidden aria-labelledby="suggestions-title">
           <h2 id="suggestions-title" class="sr-only">Review suggestions</h2>
-          <p class="suggestions-lead">Pick a suggestion or write your own review</p>
           <div class="suggestion-carousel"><button id="previous-suggestion" class="carousel-arrow previous" type="button" aria-label="Previous suggestion">‹</button><article id="suggestion-card" class="suggestion-card" aria-live="polite"></article><button id="next-suggestion" class="carousel-arrow next" type="button" aria-label="Next suggestion">›</button></div>
           <p id="suggestion-count" class="suggestion-count"></p>
         </section>
