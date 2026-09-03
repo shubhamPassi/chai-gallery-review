@@ -5,7 +5,7 @@
   const state = { rating: null, liked: [], reviews: [], currentSuggestion: 0, toastTimer: null };
   const $ = (selector) => document.querySelector(selector);
   const elements = {
-    businessName: $("#business-name"), logo: $("#logo"), ratingControl: $("#rating-control"), tagList: $("#tag-list"), comment: $("#comment"), charCount: $("#char-count"), form: $("#review-form"), generate: $("#generate-button"), generation: $("#generation-state"), message: $("#form-message"), suggestions: $("#suggestions-section"), suggestionCard: $("#suggestion-card"), suggestionCount: $("#suggestion-count"), previous: $("#previous-suggestion"), next: $("#next-suggestion"), copyToast: $("#copy-toast"), submit: $("#submit-review-button"), modal: $("#almost-done-modal"), closeModal: $("#close-modal-button"), editReview: $("#edit-review-button"), openGoogle: $("#open-google-button"),
+    businessName: $("#business-name"), logo: $("#logo"), ratingControl: $("#rating-control"), tagList: $("#tag-list"), comment: $("#comment"), charCount: $("#char-count"), form: $("#review-form"), generate: $("#generate-button"), generation: $("#generation-state"), editor: $("#editor-area"), message: $("#form-message"), suggestions: $("#suggestions-section"), suggestionCard: $("#suggestion-card"), suggestionCount: $("#suggestion-count"), previous: $("#previous-suggestion"), next: $("#next-suggestion"), copyToast: $("#copy-toast"), submit: $("#submit-review-button"), modal: $("#almost-done-modal"), closeModal: $("#close-modal-button"), editReview: $("#edit-review-button"), openGoogle: $("#open-google-button"),
   };
 
   elements.businessName.textContent = config.businessName || "Your shop";
@@ -53,7 +53,7 @@
   function setGenerating(generating) {
     elements.generate.disabled = generating;
     elements.generation.hidden = !generating;
-    elements.generate.textContent = generating ? "Generating…" : "✦ Generate Custom Review";
+    elements.generate.textContent = generating ? "Writing your draft…" : "Write my draft";
   }
 
   async function generateReviews(event) {
@@ -70,6 +70,7 @@
       if (!response.ok || reviews.length === 0) throw new Error(body.error || "We could not create review suggestions right now. Please try again.");
       state.reviews = reviews.slice(0, 4); state.currentSuggestion = 0;
       elements.suggestions.hidden = false;
+      elements.editor.hidden = false;
       selectSuggestion(0, false);
       elements.suggestions.scrollIntoView({ behavior: "smooth", block: "nearest" });
     } catch (error) { elements.message.textContent = error.message || "We could not create review suggestions right now. Please try again."; }
